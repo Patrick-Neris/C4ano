@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #000000;
+    --cor-secundaria: #F6F6F6;
+    --cor-terciaria: #22D4FD;
+    --cor-hover: #272727;
+
+    --fonte-primaria: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    box-sizing: border-box;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+}
+
+.imageFiap {
+    display: flex;
+    justify-content: center;
+    padding: 1% 0 0 10%;
+}
+
+.pagina {
+    display: flex;
+    justify-content: center;
+    padding: 40%;
+}
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #091929;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: var(--fonte-secundaria);
+    font-size: 14px;
+  }
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  #webcam-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  #label-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .label {
+    background-color: #34495e;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .highlight {
+    color: #ff6347;
+    font-weight: bold;
+  }
