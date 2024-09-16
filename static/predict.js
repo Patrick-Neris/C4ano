@@ -36,6 +36,7 @@ async function loop() {
 
 // run the webcam image through the image model
 async function predict() {
+  let date = [];
   const prediction = await model.predict(webcam.canvas);
   for (let i = 0; i < maxPredictions; i++) {
     let probability = prediction[i].probability.toFixed(2); // Fix the percentage to 2 decimal places
@@ -45,11 +46,21 @@ async function predict() {
       probability * 100
     ).toFixed(0)}%`;
 
-    // Check if probability exceeds 90% to apply a special style
-    if (probability >= 0.9) {
+    // Check if probability exceeds 85% to apply a special style
+    if (probability >= 0.85) {
       labelContainer.childNodes[
         i
       ].innerHTML = `<span class="highlight">${classPrediction}</span>`;
+      if (date[i] - new Date() >= 5000 && prediction[i] != "Outros") {
+        date[i] = new Date();
+        responsiveVoice.speak(
+          `Estou vendo ${prediction[i].className}`,
+          "Brazilian Portuguese Female",
+          {
+            rate: 1.2,
+          }
+        );
+      }
     } else {
       labelContainer.childNodes[i].innerHTML = classPrediction;
     }
