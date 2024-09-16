@@ -2,7 +2,7 @@
 const URL = `tm-my-image-model/`;
 
 let model, webcam, labelContainer, maxPredictions;
-let date = [];
+let date = new Date(2000);
 let lastSpoken = "";
 
 // Load the image model and setup the webcam
@@ -42,9 +42,6 @@ async function predict() {
   for (let i = 0; i < maxPredictions; i++) {
     let probability = prediction[i].probability.toFixed(2); // Fix the percentage to 2 decimal places
     if (probability > 1) probability = 1; // Ensure that the probability doesn't exceed 100%
-    if (typeof date[i] === "undefined") {
-      date[i] = new Date(2000);
-    }
 
     const classPrediction = `${prediction[i].className}: ${(
       probability * 100
@@ -56,10 +53,10 @@ async function predict() {
         i
       ].innerHTML = `<span class="highlight">${classPrediction}</span>`;
       if (
-        new Date().getTime() - date[i].getTime() >= 5000 &&
+        new Date().getTime() - date.getTime() >= 2000 &&
         prediction[i].className !== lastSpoken
       ) {
-        date[i] = new Date();
+        date = new Date();
         if (prediction[i].className !== "Outros") {
           responsiveVoice.speak(
             `Estou vendo ${prediction[i].className}`,
