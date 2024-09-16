@@ -2,7 +2,7 @@
 const URL = `tm-my-image-model/`;
 
 let model, webcam, labelContainer, maxPredictions;
-let date = new Date(5000);
+let date = [];
 let lastSpoken = "";
 
 // Load the image model and setup the webcam
@@ -43,18 +43,24 @@ async function loop() {
 async function predict() {
   const prediction = await model.predict(webcam.canvas);
   for (let i = 0; i < maxPredictions; i++) {
-    let probability = prediction[i].probability.toFixed(2); // Fixar a porcentagem com 2 casas decimais
-    if (probability > 1) probability = 1; // Garante que a probabilidade não exceda 100%
+    let probability = prediction[i].probability.toFixed(2); // Fix the percentage to 2 decimal places
+    if (probability > 1) probability = 1; // Ensure that the probability doesn't exceed 100%
+    if (typeof date[i] === "undefined") {
+      date[i] = new Date(2000);
+    }
 
     const classPrediction = `${prediction[i].className}: ${(probability * 100).toFixed(0)}%`;
 
     // Verifica se a probabilidade excede 85% para aplicar um estilo especial
     if (probability >= 0.85) {
-      labelContainer.childNodes[i].innerHTML = `<span class="highlight">${classPrediction}</span>`;
-      
-      // Adiciona um intervalo de 2 segundos antes de falar novamente
-      if (new Date().getTime() - date.getTime() >= 2000 && prediction[i].className !== lastSpoken) {
-        date = new Date();
+      labelContainer.childNodes[
+        i
+      ].innerHTML = `<span class="highlight">${classPrediction}</span>`;
+      if (
+        new Date().getTime() - date[i].getTime() >= 5000 &&
+        prediction[i].className !== lastSpoken
+      ) {
+        date[i] = new Date();
         if (prediction[i].className !== "Outros") {
           responsiveVoice.speak(
             `Estou vendo ${prediction[i].className}`,
