@@ -2,6 +2,8 @@
 const URL = `tm-my-image-model/`;
 
 let model, webcam, labelContainer, maxPredictions;
+let date = [];
+let lastSpoken = "";
 
 // Load the image model and setup the webcam
 async function init() {
@@ -36,11 +38,13 @@ async function loop() {
 
 // run the webcam image through the image model
 async function predict() {
-  let date = [];
   const prediction = await model.predict(webcam.canvas);
   for (let i = 0; i < maxPredictions; i++) {
     let probability = prediction[i].probability.toFixed(2); // Fix the percentage to 2 decimal places
     if (probability > 1) probability = 1; // Ensure that the probability doesn't exceed 100%
+    if (typeof date[i] === "undefined") {
+      date[i] = new Date(2000);
+    }
 
     const classPrediction = `${prediction[i].className}: ${(
       probability * 100
@@ -51,15 +55,21 @@ async function predict() {
       labelContainer.childNodes[
         i
       ].innerHTML = `<span class="highlight">${classPrediction}</span>`;
-      if (date[i] - new Date() >= 5000 && prediction[i] != "Outros") {
+      if (
+        new Date().getTime() - date[i].getTime() >= 5000 &&
+        prediction[i].className !== lastSpoken
+      ) {
         date[i] = new Date();
-        responsiveVoice.speak(
-          `Estou vendo ${prediction[i].className}`,
-          "Brazilian Portuguese Female",
-          {
-            rate: 1.2,
-          }
-        );
+        if (prediction[i].className !== "Outros") {
+          responsiveVoice.speak(
+            `Estou vendo ${prediction[i].className}`,
+            "Brazilian Portuguese Female",
+            {
+              rate: 1.5,
+            }
+          );
+        }
+        lastSpoken = prediction[i].className;
       }
     } else {
       labelContainer.childNodes[i].innerHTML = classPrediction;
