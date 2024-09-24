@@ -5,10 +5,27 @@ let model, webcam, labelContainer, maxPredictions;
 let date = [];
 let lastSpoken = "";
 
+document.addEventListener("DOMContentLoaded", () => {
+  responsiveVoice.speak(
+    "Bem vindo ao site da Luminus, seu assistente de shopping e coleta seletiva. Para iniciar, toque em qualquer lugar da tela",
+    "Brazilian Portuguese Female",
+    {
+      rate: 1.2,
+    }
+  );
+});
+
 // Load the image model and setup the webcam
 async function init() {
   // Esconde o botão "Start" quando a função init é chamada
   document.getElementById("start-btn").style.display = "none";
+  document.getElementById("label-container").style.paddingTop = "5vh";
+  document.getElementById("label-container").style.paddingBottom = "5vh";
+  document.getElementById("start-btn").style.display = "none";
+  var divWrapper = document.querySelector(".wrapper");
+  divWrapper.style.padding = "0";
+  divWrapper.style.paddingBottom = "0";
+  divWrapper.style.marginTop = "5vh";
 
   const modelURL = URL + "model.json";
   const metadataURL = URL + "metadata.json";
@@ -19,7 +36,11 @@ async function init() {
 
   // Configura a webcam
   const flip = false; // whether to flip the webcam
-  webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
+  webcam = new tmImage.Webcam(
+    0.9 * window.innerWidth,
+    0.5 * window.innerHeight,
+    flip
+  ); // width, height, flip
   await webcam.setup({ facingMode: "environment" }); // request access to the webcam
   await webcam.play();
   window.requestAnimationFrame(loop);
@@ -49,7 +70,9 @@ async function predict() {
       date[i] = new Date(2000);
     }
 
-    const classPrediction = `${prediction[i].className}: ${(probability * 100).toFixed(0)}%`;
+    const classPrediction = `${prediction[i].className}: ${(
+      probability * 100
+    ).toFixed(0)}%`;
 
     // Verifica se a probabilidade excede 85% para aplicar um estilo especial
     if (probability >= 0.85) {
