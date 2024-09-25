@@ -59,15 +59,31 @@ button:hover {
   background-color: #0056b3;
 }
 
+.redirect-btn {
+  width: 40%;
+  padding: 10vh 0;
+  font-size: 2vh;
+  display: none;
+}
+
+#buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+  padding-top: 5px;
+}
+
 #webcam-container {
   display: flex;
   justify-content: center;
 }
+
 #label-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
+
 .label {
   background-color: #34495e;
   padding: 15px;

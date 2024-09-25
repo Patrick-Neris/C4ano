@@ -15,13 +15,23 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
+function redirect(page) {
+  window.location.href = "http://www.google.com.br"; // Deixei google para testar, vou ajustar
+}
+
 // Load the image model and setup the webcam
 async function init() {
   // Esconde o botão "Start" quando a função init é chamada
   document.getElementById("start-btn").style.display = "none";
   document.getElementById("label-container").style.paddingTop = "5vh";
   document.getElementById("label-container").style.paddingBottom = "5vh";
-  document.getElementById("start-btn").style.display = "none";
+
+  var divButtons = document.querySelectorAll(".redirect-btn");
+  divButtons.forEach((btn) => {
+    btn.style.display = "block";
+  });
+  document.getElementById("buttons-container").style.height = "40vh";
+
   var divWrapper = document.querySelector(".wrapper");
   divWrapper.style.padding = "0";
   divWrapper.style.paddingBottom = "0";
