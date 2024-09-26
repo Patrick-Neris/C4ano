@@ -1,0 +1,21 @@
+{
+  "tfjsVersion": "1.3.1",
+  "tmVersion": "2.4.7",
+  "packageVersion": "0.8.4-alpha2",
+  "packageName": "@teachablemachine/image",
+  "timeStamp": "2024-09-22T23:21:22.859Z",
+  "userMetadata": {},
+  "modelName": "tm-my-image-model",
+  "labels": [
+    "Outros",
+    "Lixeira Comu...",
+    "Lixeira de m...",
+    "Lixeira não ...",
+    "Lixeira de m...",
+    "Lixeira de p...",
+    "Lixeira de p...",
+    "Lixeira de p...",
+    "Lixeira de v..."
+  ],
+  "imageSize": 224
+}

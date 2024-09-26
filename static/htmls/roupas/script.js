@@ -1,5 +1,5 @@
 // the link to your model provided by Teachable Machine export panel
-const URL = `modelos/Restaurantes/`;
+const URL = `../../modelos/Roupas/`;
 
 let model, webcam, labelContainer, maxPredictions;
 let date = new Date(2000);
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       rate: 1.2,
     }
   );
+  init();
 });
 
 function redirect(page) {
@@ -21,15 +22,8 @@ function redirect(page) {
 
 // Load the image model and setup the webcam
 async function init() {
-  // Esconde o botão "Start" quando a função init é chamada
-  document.getElementById("start-btn").style.display = "none";
   document.getElementById("label-container").style.paddingTop = "5vh";
   document.getElementById("label-container").style.paddingBottom = "5vh";
-
-  var divButtons = document.querySelectorAll(".redirect-btn");
-  divButtons.forEach((btn) => {
-    btn.style.display = "block";
-  });
   document.getElementById("buttons-container").style.height = "40vh";
 
   var divWrapper = document.querySelector(".wrapper");
