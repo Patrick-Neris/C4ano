@@ -4,4 +4,9 @@ const app = express();
 
 app.use(express.static("./static"));
 
+app.get("/", (req, res) => {
+  console.log("Redirecionou");
+  res.sendFile(path.join(__dirname, "static", "predict-with-tfjs.html"));
+});
+
 module.exports = app;
