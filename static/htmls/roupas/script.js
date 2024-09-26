@@ -4,15 +4,17 @@ const URL = `../../modelos/Roupas/`;
 let model, webcam, labelContainer, maxPredictions;
 let date = new Date(2000);
 let lastSpoken = "";
+let page = document.getElementById("page").innerText;
+console.log(page);
 
 document.addEventListener("DOMContentLoaded", () => {
-  responsiveVoice.speak(
-    "Bem vindo ao site da Luminus, seu assistente de shopping e coleta seletiva. Para iniciar, toque em qualquer lugar da tela",
-    "Brazilian Portuguese Female",
-    {
-      rate: 1.2,
-    }
+  document.title = `Luminus - Reconhecendo ${page}`;
+  let ut = new SpeechSynthesisUtterance(
+    "Você está na aba de identificação de produtos, para identificar Restaurantes, clique na parte inferior esquerda da tela, para identificar lixeiras, clique na parte inferior direita da tela."
   );
+  ut.lang = "pt-BR";
+  ut.rate = 3;
+  window.speechSynthesis.speak(ut);
   init();
 });
 
@@ -86,13 +88,12 @@ async function predict() {
       ) {
         date = new Date();
         if (prediction[i].className !== "Outros") {
-          responsiveVoice.speak(
-            `Estou vendo ${prediction[i].className}`,
-            "Brazilian Portuguese Female",
-            {
-              rate: 1.1,
-            }
+          ut = new SpeechSynthesisUtterance(
+            `Estou vendo ${prediction[i].className}`
           );
+          ut.lang = "pt-BR";
+          ut.rate = 3;
+          window.speechSynthesis.speak(ut);
         }
         lastSpoken = prediction[i].className;
       }

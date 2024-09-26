@@ -66,6 +66,10 @@ button:hover {
   padding-top: 5px;
 }
 
+#page {
+  display: none;
+}
+
 #webcam-container {
   display: flex;
   justify-content: center;
@@ -73,6 +77,7 @@ button:hover {
 
 #label-container {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   width: 100%;
 }
