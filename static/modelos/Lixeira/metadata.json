@@ -8,14 +8,14 @@
   "modelName": "tm-my-image-model",
   "labels": [
     "Outros",
-    "Lixeira Comu...",
-    "Lixeira de m...",
-    "Lixeira não ...",
-    "Lixeira de m...",
-    "Lixeira de p...",
-    "Lixeira de p...",
-    "Lixeira de p...",
-    "Lixeira de v..."
+    "Lixeira Comum",
+    "Lixeira de metal",
+    "Lixeira não Reciclável",
+    "Lixeira de material orgânico",
+    "Lixeira de papel",
+    "Lixeira de pilhas e baterias",
+    "Lixeira de plástico",
+    "Lixeira de vidro"
   ],
   "imageSize": 224
 }
