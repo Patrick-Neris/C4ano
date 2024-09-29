@@ -94,7 +94,7 @@ async function predict() {
             `Estou vendo ${prediction[i].className}`
           );
           ut.lang = "pt-BR";
-          ut.rate = 3;
+          ut.rate = 2;
           window.speechSynthesis.speak(ut);
         }
         lastSpoken = prediction[i].className;
