@@ -3,7 +3,7 @@
   "tmVersion": "2.4.7",
   "packageVersion": "0.8.4-alpha2",
   "packageName": "@teachablemachine/image",
-  "timeStamp": "2024-09-29T16:14:41.483Z",
+  "timeStamp": "2024-09-29T17:48:40.190Z",
   "userMetadata": {},
   "modelName": "tm-my-image-model",
   "labels": ["Outros", "Calça", "Camiseta", "Mochila", "Relógio", "Tênis"],
