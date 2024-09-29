@@ -3,7 +3,7 @@
   "tmVersion": "2.4.7",
   "packageVersion": "0.8.4-alpha2",
   "packageName": "@teachablemachine/image",
-  "timeStamp": "2024-09-29T02:58:34.623Z",
+  "timeStamp": "2024-09-29T16:36:49.120Z",
   "userMetadata": {},
   "modelName": "tm-my-image-model",
   "labels": [
@@ -12,8 +12,7 @@
     "KFC",
     "Mcdonalds",
     "Starbucks",
-    "Subway",
-    "Cadeira"
+    "Subway"
   ],
   "imageSize": 224
 }
