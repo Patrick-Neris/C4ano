@@ -1,11 +1,19 @@
 {
-    "tfjsVersion":"1.3.1",
-    "tmVersion":"2.4.7",
-    "packageVersion":"0.8.4-alpha2",
-    "packageName":"@teachablemachine/image",
-    "timeStamp":"2024-09-28T18:33:33.698Z",
-    "userMetadata":{},
-    "modelName":"tm-my-image-model",
-    "labels":["Outros","Mcdonalds","Burguer King","Cadeira"],
-    "imageSize":224
+  "tfjsVersion": "1.3.1",
+  "tmVersion": "2.4.7",
+  "packageVersion": "0.8.4-alpha2",
+  "packageName": "@teachablemachine/image",
+  "timeStamp": "2024-09-29T02:58:34.623Z",
+  "userMetadata": {},
+  "modelName": "tm-my-image-model",
+  "labels": [
+    "Outros",
+    "Burguer King",
+    "KFC",
+    "Mcdonalds",
+    "Starbucks",
+    "Subway",
+    "Cadeira"
+  ],
+  "imageSize": 224
 }
