@@ -17,7 +17,7 @@ async function init() {
     "Bem vindo ao site da Luminus, você está na aba de identificação de restaurantes, para identificar lixeiras, clique na parte inferior esquerda da tela, para identificar produtos, clique na parte inferior direita da tela."
   );
   ut.lang = "pt-BR";
-  ut.rate = 3;
+  ut.rate = 2;
   window.speechSynthesis.speak(ut);
   // Esconde o botão "Start" quando a função init é chamada
   document.getElementById("start-btn").style.display = "none";
