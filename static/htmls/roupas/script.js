@@ -77,8 +77,8 @@ async function predict() {
       probability * 100
     ).toFixed(0)}%`;
 
-    // Verifica se a probabilidade excede 85% para aplicar um estilo especial
-    if (probability >= 0.85) {
+    // Verifica se a probabilidade excede 95% para aplicar um estilo especial
+    if (probability >= 0.95) {
       labelContainer.childNodes[
         i
       ].innerHTML = `<span class="highlight">${classPrediction}</span>`;
