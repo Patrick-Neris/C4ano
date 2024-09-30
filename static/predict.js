@@ -8,6 +8,9 @@ let lastSpoken = "";
 document.addEventListener("DOMContentLoaded", () => {});
 
 function redirect(page) {
+  if (window.speechSynthesis.speaking) {
+    window.speechSynthesis.cancel();
+  }
   window.location.href = `${page}`;
 }
 
@@ -44,11 +47,21 @@ async function init() {
 
   // Configura a webcam
   const flip = false; // whether to flip the webcam
-  webcam = new tmImage.Webcam(
-    0.9 * window.innerWidth,
-    0.5 * window.innerHeight,
-    flip
-  ); // width, height, flip
+  if (window.innerWidth > 1000) {
+    // Verificando se é um notebook
+    webcam = new tmImage.Webcam(
+      0.5 * window.innerWidth,
+      0.7 * window.innerHeight,
+      flip
+    );
+  } else {
+    // Se for um celular
+    webcam = new tmImage.Webcam(
+      0.9 * window.innerWidth,
+      0.5 * window.innerHeight,
+      flip
+    ); // width, height, flip
+  }
   await webcam.setup({ facingMode: "environment" }); // request access to the webcam
   await webcam.play();
   window.requestAnimationFrame(loop);
