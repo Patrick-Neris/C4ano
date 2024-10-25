@@ -22,6 +22,24 @@ function redirect(page) {
   window.location.href = `${page}`;
 }
 
+function redirectMenu(rest) {
+  const links = {
+    KFC: "https://cupons.kfcbrasil.com.br/",
+    Mcdonalds: "https://www.mcdonalds.com.br/",
+  };
+  var btn = document.getElementById("menu-btn");
+  if (btn) {
+    btn.onclick = () => {
+      console.log(links[rest]);
+      window.location.href = links[rest];
+    };
+  }
+  var divWebcam = document.getElementById("webcam-container");
+  divWebcam.style.display = "none";
+  var divMenu = document.getElementById("menu-redirect-button");
+  divMenu.style.display = "block";
+}
+
 // Load the image model and setup the webcam
 async function init() {
   document.getElementById("label-container").style.paddingTop = "5vh";
@@ -79,6 +97,8 @@ async function loop() {
 // Executa a imagem da webcam através do modelo de imagem
 async function predict() {
   const prediction = await model.predict(webcam.canvas);
+  var divWebcam = document.getElementById("webcam-container");
+  var divMenu = document.getElementById("menu-redirect-button");
   for (let i = 0; i < maxPredictions; i++) {
     let probability = prediction[i].probability.toFixed(2); // Fix the percentage to 2 decimal places
     if (probability > 1) probability = 1; // Ensure that the probability doesn't exceed 100%
@@ -98,12 +118,25 @@ async function predict() {
       ) {
         date = new Date();
         if (prediction[i].className !== "Outros") {
-          ut = new SpeechSynthesisUtterance(
-            `Estou vendo ${prediction[i].className}`
-          );
-          ut.lang = "pt-BR";
-          ut.rate = 3;
-          window.speechSynthesis.speak(ut);
+          if (prediction[i].className !== "Cadeira") {
+            ut = new SpeechSynthesisUtterance(
+              `Estou vendo ${prediction[i].className}, se desejar abrir o cardápio, toque na parte superior da tela`
+            );
+            ut.lang = "pt-BR";
+            ut.rate = 2;
+            window.speechSynthesis.speak(ut);
+            redirectMenu(prediction[i].className);
+          } else {
+            ut = new SpeechSynthesisUtterance(
+              `Estou vendo ${prediction[i].className}`
+            );
+            ut.lang = "pt-BR";
+            ut.rate = 2;
+            window.speechSynthesis.speak(ut);
+          }
+        } else {
+          divMenu.style.display = "none";
+          divWebcam.style.display = "flex";
         }
         lastSpoken = prediction[i].className;
       }

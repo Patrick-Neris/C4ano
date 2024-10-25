@@ -53,6 +53,17 @@ button:hover {
   background-color: #0056b3;
 }
 
+#menu-redirect-button {
+  display: none;
+  justify-content: center;
+}
+
+#menu-btn {
+  width: 100vw;
+  font-size: 4vh;
+  height: 50vh;
+}
+
 .redirect-btn {
   width: 45%;
   padding: 10vh 0;
