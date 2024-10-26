@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Você está na aba de identificação de restaurantes, para identificar lixeiras, clique na parte inferior esquerda da tela, para identificar produtos, clique na parte inferior direita da tela."
   );
   ut.lang = "pt-BR";
-  ut.rate = 0.5;
+  ut.rate = 1;
   window.speechSynthesis.speak(ut);
   init();
 });
@@ -141,7 +141,7 @@ async function predict() {
               `Estou vendo ${prediction[i].className}, se desejar abrir o cardápio, toque na parte superior da tela`
             );
             ut.lang = "pt-BR";
-            ut.rate = 2;
+            ut.rate = 1;
             window.speechSynthesis.speak(ut);
             redirectMenu(prediction[i].className);
           } else {
@@ -149,7 +149,7 @@ async function predict() {
               `Estou vendo ${prediction[i].className}`
             );
             ut.lang = "pt-BR";
-            ut.rate = 2;
+            ut.rate = 1;
             window.speechSynthesis.speak(ut);
           }
         } else {

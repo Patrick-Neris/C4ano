@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Você está na aba de identificação de produtos, para identificar Restaurantes, clique na parte inferior esquerda da tela, para identificar lixeiras, clique na parte inferior direita da tela."
   );
   ut.lang = "pt-BR";
-  ut.rate = 0.5;
+  ut.rate = 1;
   window.speechSynthesis.speak(ut);
   init();
 });
@@ -105,7 +105,7 @@ async function predict() {
             `Estou vendo ${prediction[i].className}`
           );
           ut.lang = "pt-BR";
-          ut.rate = 3;
+          ut.rate = 1;
           window.speechSynthesis.speak(ut);
         }
         lastSpoken = prediction[i].className;
