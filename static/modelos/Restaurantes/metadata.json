@@ -3,9 +3,21 @@
   "tmVersion": "2.4.7",
   "packageVersion": "0.8.4-alpha2",
   "packageName": "@teachablemachine/image",
-  "timeStamp": "2024-09-29T18:16:11.064Z",
+  "timeStamp": "2024-10-26T16:41:11.887Z",
   "userMetadata": {},
   "modelName": "tm-my-image-model",
-  "labels": ["Outros", "KFC", "Mcdonalds", "Cadeira"],
+  "labels": [
+    "Outros",
+    "Churros",
+    "Cinquentão Hamburguer",
+    "Crepise",
+    "Comida Mexicana",
+    "J Dog",
+    "MilkShake",
+    "Mygati",
+    "Pipoca",
+    "Pizza",
+    "Veronas Grill"
+  ],
   "imageSize": 224
 }

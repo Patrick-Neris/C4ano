@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Você está na aba de identificação de restaurantes, para identificar lixeiras, clique na parte inferior esquerda da tela, para identificar produtos, clique na parte inferior direita da tela."
   );
   ut.lang = "pt-BR";
-  ut.rate = 2;
+  ut.rate = 1.5;
   window.speechSynthesis.speak(ut);
   init();
 });
@@ -24,8 +24,26 @@ function redirect(page) {
 
 function redirectMenu(rest) {
   const links = {
-    KFC: "https://cupons.kfcbrasil.com.br/",
-    Mcdonalds: "https://www.mcdonalds.com.br/",
+    Churros:
+      "https://drive.google.com/file/d/1_vekwh-DGQSdnqMyg3_DG8FfSyzbO7Pw/view?usp=sharing",
+    "Cinquentão Hamburguer":
+      "https://drive.google.com/file/d/1ODbYj5r2SzRahw9Rkn1BfkIhRfmMlWKU/view?usp=sharing",
+    Crepise:
+      "https://drive.google.com/file/d/1-ShiioVX6glPsxY3xobBTgY0RbP2PGsC/view?usp=sharing",
+    "Comida Mexicana":
+      "https://drive.google.com/file/d/1NkHMsifBbXOybuh9u8QuWjEq6FskfqE4/view?usp=sharing",
+    "J Dog":
+      "https://drive.google.com/file/d/10tjdJ_EyhqMr2YQAd3_joFXwd6IuwMWw/view?usp=sharing",
+    MilkShake:
+      "https://drive.google.com/file/d/129NeMKrYQuFmZ8F6li64nOLPXcHyoU6h/view?usp=sharing",
+    Mygati:
+      "https://drive.google.com/file/d/1mAAVJtRYoRey_nob2WsfSW_HCwL9smzU/view?usp=sharing",
+    Pipoca:
+      "https://drive.google.com/file/d/1LdM2lVZ0917yw5D4elvFhgix2SbUQ8v_/view?usp=sharing",
+    Pizza:
+      "https://drive.google.com/file/d/1Vu3Fjc1bqhZItP7xdZpmx8g8oaxiavi5/view?usp=sharing",
+    "Veronas Grill":
+      "https://drive.google.com/file/d/1PFyMD6yWreL7aWM6_v77y71G14DdbPNm/view?usp=sharing",
   };
   var btn = document.getElementById("menu-btn");
   if (btn) {

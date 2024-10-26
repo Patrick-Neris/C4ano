@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Você está na aba de identificação de produtos, para identificar Restaurantes, clique na parte inferior esquerda da tela, para identificar lixeiras, clique na parte inferior direita da tela."
   );
   ut.lang = "pt-BR";
-  ut.rate = 2;
+  ut.rate = 1.5;
   window.speechSynthesis.speak(ut);
   init();
 });
